@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace CalcPropeller
 {
-    public partial class StartForm : Form
+    public partial class CalcForm : Form
     {
-        public StartForm()
+        public CalcForm()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
