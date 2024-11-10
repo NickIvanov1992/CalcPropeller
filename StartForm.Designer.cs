@@ -75,6 +75,7 @@
             textBox1.PlaceholderText = "шаг в мм";
             textBox1.Size = new Size(173, 23);
             textBox1.TabIndex = 3;
+            textBox1.KeyPress += textBoxes_KeyPress;
             // 
             // label3
             // 
@@ -92,6 +93,7 @@
             textBox2.PlaceholderText = "диаметр в мм";
             textBox2.Size = new Size(173, 23);
             textBox2.TabIndex = 5;
+            textBox2.KeyPress += textBoxes_KeyPress;
             // 
             // pictureBox1
             // 
