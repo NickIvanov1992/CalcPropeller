@@ -15,6 +15,8 @@ namespace CalcPropeller
         public CalcForm()
         {
             InitializeComponent();
+            label3.Text = "Воздушный винт c шагом:" + CalcController.Step +"мм"+ "\n"+
+                           "Диаметр:" + CalcController.Diameter + "мм";  
         }
     }
 }

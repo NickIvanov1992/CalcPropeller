@@ -8,24 +8,29 @@ namespace CalcPropeller
 {
     public class CalcController
     {
-        public double Diameter { get; set; }
-        public double Step { get; set; }
+        public static double Diameter;
+        public static double Step;
+        private readonly Result result = new Result();
         public CalcController()
         {
-                
+
         }
         public bool Start (double step, double diameter)
         {
+            Step = step;
+            Diameter = diameter;
             if(CheckFields(step,diameter) == true)
             {
+                result.GetResult();
                 return true;
             }
             return false;
         }
+        //установить ограничения для входных параметров
         private bool CheckFields(double step,double diameter)
         {
             
-            if(step > 0)
+            if(step > 0 && diameter > 0)
             {
                 return true;
             }
@@ -35,7 +40,7 @@ namespace CalcPropeller
             }
             return false;
         }
-        private void ShowMessage(string message)
+        internal void ShowMessage(string message)
         {
             MessageBox.Show(
                 message,

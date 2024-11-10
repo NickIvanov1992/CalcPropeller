@@ -9,10 +9,17 @@ namespace CalcPropeller
 {
     public class Result
     {
+        //CalcForm calcForm = new CalcForm();
         Propeller.Propeller propeller = new Propeller.Propeller();
+
+        public void GetResult()
+        {
+            Show();
+        }
         public void Show()
         {
-            
+            CalcForm calcForm = new();
+            calcForm.Show();
         }
     }
 }

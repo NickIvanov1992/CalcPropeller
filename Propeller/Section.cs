@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace CalcPropeller.Propeller
 {
-    internal class Section
+    public class Section
     {
+        public List<Coordinates> point = new List<Coordinates>();
+    }
+    public struct Coordinates
+    {
+        public double x, y;
     }
 }
