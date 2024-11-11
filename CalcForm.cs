@@ -18,5 +18,6 @@ namespace CalcPropeller
             label3.Text = "Воздушный винт c шагом:" + CalcController.Step +"мм"+ "\n"+
                            "Диаметр:" + CalcController.Diameter + "мм";  
         }
+
     }
 }

@@ -1,17 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CalcPropeller.Propeller
 {
+    //public class Section
+    //{
+    //    public List<Coordinates> point = new List<Coordinates>();
+    //}
+    //public struct Coordinates
+    //{
+    //    public double x, y;
+    //}
     public class Section
     {
-        public List<Coordinates> point = new List<Coordinates>();
-    }
-    public struct Coordinates
-    {
-        public double x, y;
+        public double[] cordinates;
+        public double X;
+        public double Y;
+        public Dictionary<string, double[]> point = new Dictionary<string, double[]>();
+        public double[]? pointA { get; set; }
+        public double[]? pointB { get; set; }
+        public double[]? pointC { get; set; }
+        public double[]? pointD { get; set; }
+        public double[]? pointE { get; set; }
+        public double[]? pointF { get; set; }
+        public double[]? pointG { get; set; }
+        public double[]? pointH { get; set; }
+        public double[]? pointI { get; set; }
+        public double[]? pointJ { get; set; }
+        public double[]? pointK { get; set; }
+        public double[]? pointL { get; set; }
+        public double[]? pointM { get; set; }
+        public double[]? pointN { get; set; }
+        public double[]? pointO { get; set; }
+        public double[]? pointP { get; set; }
+        public double[]? pointQ { get; set; }
+        public double[]? pointR { get; set; }
+        public double[]? pointS { get; set; }
+        public double[]? pointT { get; set; }
+        public double[]? pointU { get; set; }
+        public double[]? pointV { get; set; }
+        public double angle { get; set; }
+
     }
 }
