@@ -41,8 +41,16 @@
             button2 = new Button();
             label1 = new Label();
             label3 = new Label();
+            TableA = new DataGridView();
+            CordinateName = new DataGridViewTextBoxColumn();
+            A = new DataGridViewTextBoxColumn();
+            B = new DataGridViewTextBoxColumn();
+            C = new DataGridViewTextBoxColumn();
+            D = new DataGridViewTextBoxColumn();
             tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)TableA).BeginInit();
             SuspendLayout();
             // 
             // label2
@@ -63,6 +71,7 @@
             tabControl1.Controls.Add(tabPage4);
             tabControl1.Controls.Add(tabPage5);
             tabControl1.Controls.Add(tabPage6);
+            tabControl1.ImeMode = ImeMode.On;
             tabControl1.Location = new Point(39, 98);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -71,12 +80,13 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(TableA);
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
             tabPage1.Size = new Size(696, 136);
             tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1";
+            tabPage1.Text = "Сечение A (14.7R)";
             tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
@@ -84,45 +94,45 @@
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(723, 326);
+            tabPage2.Size = new Size(696, 136);
             tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
+            tabPage2.Text = "Сечение B (30R)";
             tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
             tabPage3.Location = new Point(4, 24);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(723, 326);
+            tabPage3.Size = new Size(696, 136);
             tabPage3.TabIndex = 2;
-            tabPage3.Text = "tabPage3";
+            tabPage3.Text = "Сечение С (45R)";
             tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
             tabPage4.Location = new Point(4, 24);
             tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(723, 326);
+            tabPage4.Size = new Size(696, 136);
             tabPage4.TabIndex = 3;
-            tabPage4.Text = "tabPage4";
+            tabPage4.Text = "Сечение D (60R)";
             tabPage4.UseVisualStyleBackColor = true;
             // 
             // tabPage5
             // 
             tabPage5.Location = new Point(4, 24);
             tabPage5.Name = "tabPage5";
-            tabPage5.Size = new Size(723, 326);
+            tabPage5.Size = new Size(696, 136);
             tabPage5.TabIndex = 4;
-            tabPage5.Text = "tabPage5";
+            tabPage5.Text = "Сечение E (75R)";
             tabPage5.UseVisualStyleBackColor = true;
             // 
             // tabPage6
             // 
             tabPage6.Location = new Point(4, 24);
             tabPage6.Name = "tabPage6";
-            tabPage6.Size = new Size(723, 326);
+            tabPage6.Size = new Size(696, 136);
             tabPage6.TabIndex = 5;
-            tabPage6.Text = "tabPage6";
+            tabPage6.Text = "Сечение F (90R)";
             tabPage6.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
@@ -169,6 +179,44 @@
             label3.TabIndex = 9;
             label3.Text = "...Данные воздушного винта";
             // 
+            // TableA
+            // 
+            TableA.AllowUserToDeleteRows = false;
+            TableA.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
+            TableA.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TableA.Columns.AddRange(new DataGridViewColumn[] { CordinateName, A, B, C, D });
+            TableA.GridColor = SystemColors.ActiveCaptionText;
+            TableA.Location = new Point(23, 22);
+            TableA.Name = "TableA";
+            TableA.RowTemplate.Height = 25;
+            TableA.Size = new Size(543, 114);
+            TableA.TabIndex = 0;
+            // 
+            // CordinateName
+            // 
+            CordinateName.HeaderText = "Координаты";
+            CordinateName.Name = "CordinateName";
+            // 
+            // A
+            // 
+            A.HeaderText = "A";
+            A.Name = "A";
+            // 
+            // B
+            // 
+            B.HeaderText = "B";
+            B.Name = "B";
+            // 
+            // C
+            // 
+            C.HeaderText = "C";
+            C.Name = "C";
+            // 
+            // D
+            // 
+            D.HeaderText = "D";
+            D.Name = "D";
+            // 
             // CalcForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -184,7 +232,9 @@
             Name = "CalcForm";
             Text = "CalcForm";
             tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)TableA).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -204,5 +254,11 @@
         private Button button2;
         private Label label1;
         private Label label3;
+        private DataGridView TableA;
+        private DataGridViewTextBoxColumn CordinateName;
+        private DataGridViewTextBoxColumn A;
+        private DataGridViewTextBoxColumn B;
+        private DataGridViewTextBoxColumn C;
+        private DataGridViewTextBoxColumn D;
     }
 }

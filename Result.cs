@@ -14,7 +14,7 @@ namespace CalcPropeller
         //Section SectionA = new Section();
         //Section SectionB = new Section();
         //Coordinates coordinates = new Coordinates();
-        public double[] cordinate = new double[2];
+        
         public double xCenterChord;
         Section sectionA = new Section();
         Section sectionB = new();
@@ -29,7 +29,7 @@ namespace CalcPropeller
         }
         public void Show()
         {
-            CalcForm calcForm = new();
+            CalcForm calcForm = new(sectionA,sectionB,sectionC,sectionD,sectionE,sectionF);
             calcForm.Show();
         }
 
@@ -120,12 +120,12 @@ namespace CalcPropeller
             //create F section 90% R
             xCenterChord = 10.16 / 2;
             sectionF.angle = CalcAngle(90);
-            sectionE.pointA = WriteCordinates(-xCenterChord, 0);
-            sectionE.pointB = WriteCordinates(-xCenterChord + 1.02, 0.366);
-            sectionE.pointC = WriteCordinates(-xCenterChord + 1.02*2, 0.528);
-            sectionE.pointD = WriteCordinates(-xCenterChord + 1.02 * 3, 0.660);
-            sectionE.pointE = WriteCordinates(-xCenterChord + 1.02 * 4, 0.762);
-            sectionE.pointF = WriteCordinates(-xCenterChord + 1.02 * 5, 0.882);
+            sectionF.pointA = WriteCordinates(-xCenterChord, 0);
+            sectionF.pointB = WriteCordinates(-xCenterChord + 1.02, 0.366);
+            sectionF.pointC = WriteCordinates(-xCenterChord + 1.02*2, 0.528);
+            sectionF.pointD = WriteCordinates(-xCenterChord + 1.02 * 3, 0.660);
+            sectionF.pointE = WriteCordinates(-xCenterChord + 1.02 * 4, 0.762);
+            sectionF.pointF = WriteCordinates(-xCenterChord + 1.02 * 5, 0.882);
             sectionF.pointG = WriteCordinates(-xCenterChord + 1.02 * 6, 0.862);
             sectionF.pointH = WriteCordinates(-xCenterChord + 1.02 * 7, 0.872);
             sectionF.pointI = WriteCordinates(-xCenterChord + 1.02 * 8, 0.832);
@@ -133,15 +133,16 @@ namespace CalcPropeller
             sectionF.pointK = WriteCordinates(-xCenterChord + 1.02 * 9 + 0.508, 0.518);
             sectionF.pointL = WriteCordinates(-xCenterChord + 1.02 * 10, 0);
         }
-        private double CalcAngle(double percent)=>
-                    Math.Atan((CalcController.Step / 2 * Math.PI) / (CalcController.Diameter * percent));
+        private double CalcAngle(double percent) =>
+                    (Math.Atan((CalcController.Step / (2 * Math.PI)) / (CalcController.Diameter / 2 / 100 * percent))) / (Math.PI/180);
         private double CalcValue(double percent) =>
-            percent * CalcController.Diameter / 2;
+            percent * (CalcController.Diameter / 2/100);
         private double[] WriteCordinates(double X,double Y)
         {
-             cordinate[1] = CalcValue(X);
-             cordinate[2] = CalcValue(Y);
-             return cordinate;
+             double[] cordinates = new double[2];
+             cordinates[0] = CalcValue(X);
+             cordinates[1] = CalcValue(Y);
+             return cordinates;
         }
     }
 }
