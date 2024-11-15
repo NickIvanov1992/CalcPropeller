@@ -36,7 +36,7 @@ namespace CalcPropeller
         public void CreateSections()
         {
             //create A section 14,7% R
-            xCenterChord = 13.4 / 2;
+            xCenterChord = Math.Round(13.4 / 2,2);
             sectionA.angle = CalcAngle(14.7);
             sectionA.pointA = WriteCordinates(-xCenterChord, 0);
             sectionA.pointB = WriteCordinates(0, 5.5 / 2);
@@ -44,7 +44,7 @@ namespace CalcPropeller
             sectionA.pointD = WriteCordinates(0, -(5.5 / 2));
 
             //create B section 30% R
-            xCenterChord = 13.5 / 2;
+            xCenterChord = Math.Round(13.5 / 2,2);
             sectionB.angle = CalcAngle(30);
             sectionB.pointA = WriteCordinates(-xCenterChord, 0);
             sectionB.pointB = WriteCordinates(-xCenterChord+ 1.35, 0.850);
@@ -70,7 +70,7 @@ namespace CalcPropeller
             sectionB.pointV = WriteCordinates(-xCenterChord + 1.35, -0.594);
 
             //create C section 45% R
-            xCenterChord = 16.3 / 2;
+            xCenterChord = Math.Round(16.3 / 2, 2);
             sectionC.angle = CalcAngle(45);
             sectionC.pointA = WriteCordinates(-xCenterChord, 0);
             sectionC.pointB = WriteCordinates(-xCenterChord + 1.626, 1.056);
@@ -86,7 +86,7 @@ namespace CalcPropeller
             sectionC.pointL = WriteCordinates(-xCenterChord + 1.626 * 10, 0);
 
             //create D section 60% R
-            xCenterChord = 16.4 / 2;
+            xCenterChord = Math.Round(16.4 / 2, 2);
             sectionD.angle = CalcAngle(60);
             sectionD.pointA = WriteCordinates(-xCenterChord, 0);
             sectionD.pointB = WriteCordinates(-xCenterChord + 1.64, 0.770);
@@ -102,7 +102,7 @@ namespace CalcPropeller
             sectionD.pointL = WriteCordinates(-xCenterChord + 1.64 * 10, 0);
 
             //create E section 75% R
-            xCenterChord = 14.5 / 2;
+            xCenterChord = Math.Round(14.5 / 2, 2);
             sectionE.angle = CalcAngle(75);
             sectionE.pointA = WriteCordinates(-xCenterChord, 0);
             sectionE.pointB = WriteCordinates(-xCenterChord + 1.45, 0.548);
@@ -118,7 +118,7 @@ namespace CalcPropeller
             sectionE.pointL = WriteCordinates(-xCenterChord + 1.45 * 10, 0);
 
             //create F section 90% R
-            xCenterChord = 10.16 / 2;
+            xCenterChord = Math.Round(10.16 / 2, 2);
             sectionF.angle = CalcAngle(90);
             sectionF.pointA = WriteCordinates(-xCenterChord, 0);
             sectionF.pointB = WriteCordinates(-xCenterChord + 1.02, 0.366);
@@ -136,7 +136,7 @@ namespace CalcPropeller
         private double CalcAngle(double percent) =>
                     (Math.Atan((CalcController.Step / (2 * Math.PI)) / (CalcController.Diameter / 2 / 100 * percent))) / (Math.PI/180);
         private double CalcValue(double percent) =>
-            percent * (CalcController.Diameter / 2/100);
+            Math.Round(percent * (CalcController.Diameter / 2/100),2);
         private double[] WriteCordinates(double X,double Y)
         {
              double[] cordinates = new double[2];
