@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CalcPropeller.Propeller;
 
+
 namespace CalcPropeller
 {
     public class Result
@@ -14,7 +15,6 @@ namespace CalcPropeller
         //Section SectionA = new Section();
         //Section SectionB = new Section();
         //Coordinates coordinates = new Coordinates();
-        
         public double xCenterChord;
         Section sectionA = new Section();
         Section sectionB = new();
@@ -31,6 +31,7 @@ namespace CalcPropeller
         {
             CalcForm calcForm = new(sectionA,sectionB,sectionC,sectionD,sectionE,sectionF);
             calcForm.Show();
+           // calcForm.CreateChart();
         }
 
         public void CreateSections()

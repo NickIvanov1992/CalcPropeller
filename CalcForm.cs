@@ -113,6 +113,7 @@ namespace CalcPropeller
             CreateTables(TableF, f.pointJ);
             CreateTables(TableF, f.pointK);
             CreateTables(TableF, f.pointL);
+
         }
 
         public void CreateTables(DataGridView table, double[] point)
@@ -136,6 +137,33 @@ namespace CalcPropeller
                 }
             }
 
+        }
+
+
+        //public void CreateChart()
+        //{
+        //    Graphics graphics = pictureBox1.CreateGraphics();
+        //    Pen pen = new Pen(Color.Black, 3f);
+        //    Point[] points = new Point[100];
+
+        //    for (int i = 0; i < points.Length; i++)
+        //    {
+        //        points[i] = new Point(i, (int)(Math.Sin((double)i / 10) * 100 + 200));
+        //    }
+        //    graphics.DrawLines(pen, points);
+        //}
+
+        private void CalcForm_Load(object sender, EventArgs e)
+        {
+            Graphics graphics = pictureBox1.CreateGraphics();
+            Pen pen = new Pen(Color.Black, 3f);
+            Point[] points = new Point[100];
+
+            for (int i = 0; i < points.Length; i++)
+            {
+                points[i] = new Point(i, (int)(Math.Sin((double)i / 10) * 100 + 200));
+            }
+            graphics.DrawLines(pen, points);
         }
     }
 }

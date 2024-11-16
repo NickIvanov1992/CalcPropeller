@@ -124,11 +124,11 @@
             Column48 = new DataGridViewTextBoxColumn();
             Column49 = new DataGridViewTextBoxColumn();
             Column50 = new DataGridViewTextBoxColumn();
-            pictureBox1 = new PictureBox();
             button1 = new Button();
             button2 = new Button();
             label1 = new Label();
             label3 = new Label();
+            pictureBox1 = new PictureBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TableA).BeginInit();
@@ -795,14 +795,6 @@
             Column50.HeaderText = "L";
             Column50.Name = "Column50";
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Location = new Point(43, 279);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(427, 287);
-            pictureBox1.TabIndex = 5;
-            pictureBox1.TabStop = false;
-            // 
             // button1
             // 
             button1.Location = new Point(511, 465);
@@ -839,20 +831,29 @@
             label3.TabIndex = 9;
             label3.Text = "...Данные воздушного винта";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(17, 269);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(463, 297);
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            // 
             // CalcForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 578);
+            Controls.Add(pictureBox1);
             Controls.Add(label3);
             Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(pictureBox1);
             Controls.Add(tabControl1);
             Controls.Add(label2);
             Name = "CalcForm";
             Text = "CalcForm";
+            Load += CalcForm_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)TableA).EndInit();
@@ -881,7 +882,6 @@
         private TabPage tabPage4;
         private TabPage tabPage5;
         private TabPage tabPage6;
-        private PictureBox pictureBox1;
         private Button button1;
         private Button button2;
         private Label label1;
@@ -972,5 +972,6 @@
         private DataGridViewTextBoxColumn Column16;
         private DataGridViewTextBoxColumn Column17;
         private DataGridViewTextBoxColumn Column18;
+        private PictureBox pictureBox1;
     }
 }
