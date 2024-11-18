@@ -22,6 +22,7 @@ namespace CalcPropeller
         public CalcForm(Section a, Section b, Section c, Section d, Section e, Section f)
         {
             InitializeComponent();
+
             label3.Text = "Воздушный винт c шагом:" + CalcController.Step + "мм" + "\n" +
                            "Диаметр:" + CalcController.Diameter + "мм";
             this.a = a;
@@ -31,6 +32,7 @@ namespace CalcPropeller
             this.e = e;
             this.f = f;
             AddDataOnTables();
+            pictureBox1.Paint += CalcFormChart_Load;
         }
         public void AddDataOnTables()
         {
@@ -139,26 +141,11 @@ namespace CalcPropeller
 
         }
 
-
-        //public void CreateChart()
-        //{
-        //    Graphics graphics = pictureBox1.CreateGraphics();
-        //    Pen pen = new Pen(Color.Black, 3f);
-        //    Point[] points = new Point[100];
-
-        //    for (int i = 0; i < points.Length; i++)
-        //    {
-        //        points[i] = new Point(i, (int)(Math.Sin((double)i / 10) * 100 + 200));
-        //    }
-        //    graphics.DrawLines(pen, points);
-        //}
-
-        private void CalcForm_Load(object sender, EventArgs e)
+        private void CalcFormChart_Load(object sender, PaintEventArgs e)
         {
-            Graphics graphics = pictureBox1.CreateGraphics();
             Pen pen = new Pen(Color.Black, 3f);
+            var graphics = e.Graphics;
             Point[] points = new Point[100];
-
             for (int i = 0; i < points.Length; i++)
             {
                 points[i] = new Point(i, (int)(Math.Sin((double)i / 10) * 100 + 200));

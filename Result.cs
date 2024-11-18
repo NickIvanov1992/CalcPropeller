@@ -25,15 +25,13 @@ namespace CalcPropeller
         public void GetResult()
         {
             CreateSections();
-            Show();
+            Show();      
         }
         public void Show()
         {
-            CalcForm calcForm = new(sectionA,sectionB,sectionC,sectionD,sectionE,sectionF);
+            CalcForm calcForm = new(sectionA, sectionB, sectionC, sectionD, sectionE, sectionF);
             calcForm.Show();
-           // calcForm.CreateChart();
         }
-
         public void CreateSections()
         {
             //create A section 14,7% R

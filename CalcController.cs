@@ -11,20 +11,14 @@ namespace CalcPropeller
         public static double Diameter;
         public static double Step;
         private readonly Result result = new Result();
-        public CalcController()
-        {
-
-        }
-        public bool Start (double step, double diameter)
+        public void Start (double step, double diameter)
         {
             Step = step;
             Diameter = diameter;
             if(CheckFields(step,diameter) == true)
             {
                 result.GetResult();
-                return true;
             }
-            return false;
         }
         //установить ограничения для входных параметров
         private bool CheckFields(double step,double diameter)

@@ -853,7 +853,7 @@
             Controls.Add(label2);
             Name = "CalcForm";
             Text = "CalcForm";
-            Load += CalcForm_Load;
+            //Load += CalcForm_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)TableA).EndInit();
