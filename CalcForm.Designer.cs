@@ -169,6 +169,7 @@
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(784, 161);
             tabControl1.TabIndex = 4;
+            tabControl1.Click += CalcForm_Load;
             // 
             // tabPage1
             // 
@@ -196,6 +197,7 @@
             TableA.RowTemplate.Height = 25;
             TableA.Size = new Size(543, 114);
             TableA.TabIndex = 0;
+            TableA.Click += CalcForm_Load;
             // 
             // CordinateName
             // 
@@ -271,6 +273,7 @@
             TableB.RowTemplate.Height = 25;
             TableB.Size = new Size(776, 114);
             TableB.TabIndex = 1;
+            TableB.Click += CalcForm_Load;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -459,6 +462,7 @@
             TableC.RowTemplate.Height = 25;
             TableC.Size = new Size(693, 113);
             TableC.TabIndex = 2;
+            TableC.Click += CalcForm_Load;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -549,6 +553,7 @@
             TableD.RowTemplate.Height = 25;
             TableD.Size = new Size(690, 113);
             TableD.TabIndex = 2;
+            TableD.Click += CalcForm_Load;
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -639,6 +644,7 @@
             TableE.RowTemplate.Height = 25;
             TableE.Size = new Size(690, 113);
             TableE.TabIndex = 2;
+            TableE.Click += CalcForm_Load;
             // 
             // dataGridViewTextBoxColumn16
             // 
@@ -729,6 +735,7 @@
             TableF.RowTemplate.Height = 25;
             TableF.Size = new Size(690, 113);
             TableF.TabIndex = 2;
+            TableF.Click += CalcForm_Load;
             // 
             // dataGridViewTextBoxColumn21
             // 
@@ -853,7 +860,7 @@
             Controls.Add(label2);
             Name = "CalcForm";
             Text = "CalcForm";
-            //Load += CalcForm_Load;
+            Load += CalcForm_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)TableA).EndInit();

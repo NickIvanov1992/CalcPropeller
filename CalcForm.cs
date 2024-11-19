@@ -19,6 +19,7 @@ namespace CalcPropeller
         private readonly Section d = new Section();
         private readonly Section e = new Section();
         private readonly Section f = new Section();
+        Pen pen = new Pen(Color.Black, 3f);
         public CalcForm(Section a, Section b, Section c, Section d, Section e, Section f)
         {
             InitializeComponent();
@@ -31,91 +32,20 @@ namespace CalcPropeller
             this.d = d;
             this.e = e;
             this.f = f;
-            AddDataOnTables();
+            AddDataOnTables(a, TableA);
+            AddDataOnTables(b, TableB);
+            AddDataOnTables(c, TableC);
+            AddDataOnTables(d, TableD);
+            AddDataOnTables(e, TableE);
+            AddDataOnTables(f, TableF);
             pictureBox1.Paint += CalcFormChart_Load;
         }
-        public void AddDataOnTables()
+        public void AddDataOnTables(Section section, DataGridView table)
         {
-            CreateTables(TableA, a.pointA);
-            CreateTables(TableA, a.pointB);
-            CreateTables(TableA, a.pointC);
-            CreateTables(TableA, a.pointD);
-
-            CreateTables(TableB, b.pointA);
-            CreateTables(TableB, b.pointB);
-            CreateTables(TableB, b.pointC);
-            CreateTables(TableB, b.pointD);
-            CreateTables(TableB, b.pointE);
-            CreateTables(TableB, b.pointF);
-            CreateTables(TableB, b.pointG);
-            CreateTables(TableB, b.pointH);
-            CreateTables(TableB, b.pointI);
-            CreateTables(TableB, b.pointJ);
-            CreateTables(TableB, b.pointK);
-            CreateTables(TableB, b.pointL);
-            CreateTables(TableB, b.pointM);
-            CreateTables(TableB, b.pointN);
-            CreateTables(TableB, b.pointO);
-            CreateTables(TableB, b.pointP);
-            CreateTables(TableB, b.pointQ);
-            CreateTables(TableB, b.pointR);
-            CreateTables(TableB, b.pointS);
-            CreateTables(TableB, b.pointT);
-            CreateTables(TableB, b.pointU);
-            CreateTables(TableB, b.pointV);
-
-            CreateTables(TableC, c.pointA);
-            CreateTables(TableC, c.pointB);
-            CreateTables(TableC, c.pointC);
-            CreateTables(TableC, c.pointD);
-            CreateTables(TableC, c.pointE);
-            CreateTables(TableC, c.pointF);
-            CreateTables(TableC, c.pointG);
-            CreateTables(TableC, c.pointH);
-            CreateTables(TableC, c.pointI);
-            CreateTables(TableC, c.pointJ);
-            CreateTables(TableC, c.pointK);
-            CreateTables(TableC, c.pointL);
-
-            CreateTables(TableD, d.pointA);
-            CreateTables(TableD, d.pointB);
-            CreateTables(TableD, d.pointC);
-            CreateTables(TableD, d.pointD);
-            CreateTables(TableD, d.pointE);
-            CreateTables(TableD, d.pointF);
-            CreateTables(TableD, d.pointG);
-            CreateTables(TableD, d.pointH);
-            CreateTables(TableD, d.pointI);
-            CreateTables(TableD, d.pointJ);
-            CreateTables(TableD, d.pointK);
-            CreateTables(TableD, d.pointL);
-
-            CreateTables(TableE, e.pointA);
-            CreateTables(TableE, e.pointB);
-            CreateTables(TableE, e.pointC);
-            CreateTables(TableE, e.pointD);
-            CreateTables(TableE, e.pointE);
-            CreateTables(TableE, e.pointF);
-            CreateTables(TableE, e.pointG);
-            CreateTables(TableE, e.pointH);
-            CreateTables(TableE, e.pointI);
-            CreateTables(TableE, e.pointJ);
-            CreateTables(TableE, e.pointK);
-            CreateTables(TableE, e.pointL);
-
-            CreateTables(TableF, f.pointA);
-            CreateTables(TableF, f.pointB);
-            CreateTables(TableF, f.pointC);
-            CreateTables(TableF, f.pointD);
-            CreateTables(TableF, f.pointE);
-            CreateTables(TableF, f.pointF);
-            CreateTables(TableF, f.pointG);
-            CreateTables(TableF, f.pointH);
-            CreateTables(TableF, f.pointI);
-            CreateTables(TableF, f.pointJ);
-            CreateTables(TableF, f.pointK);
-            CreateTables(TableF, f.pointL);
-
+            for (int i = 0; i < section.points.Count; i++)
+            {
+                CreateTables(table, section.points[i]);
+            }
         }
 
         public void CreateTables(DataGridView table, double[] point)
@@ -143,14 +73,54 @@ namespace CalcPropeller
 
         private void CalcFormChart_Load(object sender, PaintEventArgs e)
         {
-            Pen pen = new Pen(Color.Black, 3f);
             var graphics = e.Graphics;
-            Point[] points = new Point[100];
-            for (int i = 0; i < points.Length; i++)
-            {
-                points[i] = new Point(i, (int)(Math.Sin((double)i / 10) * 100 + 200));
-            }
+            GetCurrentPoints();
+            Point[] points = GetCurrentPoints();
             graphics.DrawLines(pen, points);
+        }
+        private Point[] GetCurrentPoints()
+        {
+            Point[] point = new Point[12];
+            if (tabControl1.SelectedTab == tabControl1.TabPages[0])
+            {
+                point = new Point[4];
+                return SetPointsValue(point, a);
+            }
+            else if (tabControl1.SelectedTab == tabControl1.TabPages[1])
+            {
+                point = new Point[22];
+                return SetPointsValue(point, b);
+            }
+            else if (tabControl1.SelectedTab == tabControl1.TabPages[2])
+            {
+                point = new Point[12];
+                return SetPointsValue(point, c);
+            }
+            else if (tabControl1.SelectedTab == tabControl1.TabPages[3])
+            {
+                point = new Point[12];
+                return SetPointsValue(point, d);
+            }
+            else if (tabControl1.SelectedTab == tabControl1.TabPages[4])
+            {
+                point = new Point[12];
+                return SetPointsValue(point, e);
+            }
+            else
+                return SetPointsValue(point, f);
+        }
+        private Point[] SetPointsValue(Point[] p, Section s)
+        {
+            for (int i = 0; i < p.Length; i++)
+            {
+                p[i].X = Convert.ToInt32(a.points[i][0] * 100);
+                p[i].Y = Convert.ToInt32(a.points[i][1] * 100);
+            }
+            return p;
+        }
+        private void CalcForm_Load(object sender, EventArgs e)
+        {
+            pictureBox1.Paint += CalcFormChart_Load;
         }
     }
 }
