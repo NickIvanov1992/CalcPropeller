@@ -124,8 +124,6 @@
             Column48 = new DataGridViewTextBoxColumn();
             Column49 = new DataGridViewTextBoxColumn();
             Column50 = new DataGridViewTextBoxColumn();
-            button1 = new Button();
-            button2 = new Button();
             label1 = new Label();
             label3 = new Label();
             pictureBox1 = new PictureBox();
@@ -802,30 +800,13 @@
             Column50.HeaderText = "L";
             Column50.Name = "Column50";
             // 
-            // button1
-            // 
-            button1.Location = new Point(511, 465);
-            button1.Name = "button1";
-            button1.Size = new Size(228, 42);
-            button1.TabIndex = 6;
-            button1.Text = "Сохранить изображение";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(511, 526);
-            button2.Name = "button2";
-            button2.Size = new Size(228, 40);
-            button2.TabIndex = 7;
-            button2.Text = "Сохранить координаты";
-            button2.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(432, 23);
+            label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label1.Location = new Point(416, 28);
             label1.Name = "label1";
-            label1.Size = new Size(104, 15);
+            label1.Size = new Size(118, 15);
             label1.TabIndex = 8;
             label1.Text = "Предмет расчета:";
             // 
@@ -840,9 +821,10 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(17, 269);
+            pictureBox1.Location = new Point(12, 271);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(463, 297);
+            pictureBox1.Size = new Size(580, 300);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
             // 
@@ -854,12 +836,10 @@
             Controls.Add(pictureBox1);
             Controls.Add(label3);
             Controls.Add(label1);
-            Controls.Add(button2);
-            Controls.Add(button1);
             Controls.Add(tabControl1);
             Controls.Add(label2);
             Name = "CalcForm";
-            Text = "CalcForm";
+            Text = "Результат расчета";
             Load += CalcForm_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
@@ -889,8 +869,6 @@
         private TabPage tabPage4;
         private TabPage tabPage5;
         private TabPage tabPage6;
-        private Button button1;
-        private Button button2;
         private Label label1;
         private Label label3;
         private DataGridView TableA;
