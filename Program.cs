@@ -12,7 +12,7 @@ namespace CalcPropeller
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             CalcController calcController = new CalcController();
-            Application.Run(new StartForm());
+            Application.Run(new StartForm(calcController));
         }
     }
 }

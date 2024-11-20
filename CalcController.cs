@@ -8,16 +8,48 @@ namespace CalcPropeller
 {
     public class CalcController
     {
-        public double Diameter { get; set; }
-        public double Step { get; set; }
-        public CalcController()
+        public static double Diameter;
+        public static double Step;
+        private readonly Result result = new Result();
+        public void Start (double step, double diameter)
         {
-                
+            Step = step;
+            Diameter = diameter;
+            if(CheckFields(step,diameter) == true)
+            {
+                result.GetResult();
+            }
         }
-        public bool checkFields(double diameter, double step)
+        //установить ограничения для входных параметров
+        private bool CheckFields(double step,double diameter)
         {
             
-            return true;
+            if(step > 0 && diameter > 0)
+            {
+                return true;
+            }
+            else
+            {
+                ShowMessage("Неверно введен шаг или диаметр!");
+            }
+            return false;
+        }
+        internal void ShowMessage(string message)
+        {
+            MessageBox.Show(
+                message,
+                "Ошибка",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly);
+        }
+
+        private static bool IsDigitInput (string value)
+        {
+            double num;
+            bool isDigit = double.TryParse(value, out num);
+            return isDigit;
         }
     }
 }
